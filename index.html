@@ -823,8 +823,10 @@ body {
             // Ensuite synchroniser avec Google Sheets en arrière-plan
             try {
                 const cacheBuster = new Date().getTime();
-                const response = await fetch(googleSheetUrl + '?action=loadData&t=' + cacheBuster, {
+                const response = await fetch(googleSheetUrl + '&action=loadData', {
                     method: 'GET',
+                    mode: 'cors',
+                    cache: 'no-cache',
                     headers: {
                         'Accept': 'application/json'
                     }
@@ -1025,20 +1027,23 @@ body {
                 
                 document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">⏳</span> Synchronisation...';
                 
+                const dataToSend = {
+                    action: 'saveData',
+                    data: {
+                        parents: parents,
+                        dailyData: appData.dailyData,
+                        timestamp: new Date().toISOString()
+                    }
+                };
+                
                 const response = await fetch(googleSheetUrl, {
                     method: 'POST',
-                    mode: 'no-cors',
+                    mode: 'cors',
+                    cache: 'no-cache',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'text/plain',
                     },
-                    body: JSON.stringify({
-                        action: 'saveData',
-                        data: {
-                            parents: parents,
-                            dailyData: appData.dailyData,
-                            timestamp: new Date().toISOString()
-                        }
-                    })
+                    body: JSON.stringify(dataToSend)
                 });
                 
                 document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Sauvegardé';
