@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi Familial - Louis</title>
+    <style>
+        :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+  padding: var(--space-16);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-32);
+  padding: var(--space-24) 0;
+}
+
+.header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.main-navigation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.nav-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-12);
+  font-family: var(--font-family-base);
+}
+
+.nav-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+  background: var(--color-bg-1);
+}
+
+.nav-card:active {
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.nav-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.nav-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.secondary-actions {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  font-family: var(--font-family-base);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.week-navigation {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.current-week {
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-8) var(--space-16);
+  background: var(--color-bg-1);
+  border-radius: var(--radius-base);
+}
+
+.week-picker {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+}
+
+.parent-settings {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.parent-input {
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  width: 120px;
+}
+
+.view-container {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-card-border);
+}
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-16);
+}
+
+.task-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.task-buttons {
+  display: flex;
+  gap: var(--space-12);
+  margin-bottom: var(--space-16);
+}
+
+.btn-plus {
+  flex: 1;
+  padding: var(--space-16);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-plus:active {
+  transform: scale(0.95);
+}
+
+.btn-plus.parent1 {
+  background: var(--color-bg-1);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-plus.parent1:hover {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn-plus.parent2 {
+  background: var(--color-bg-2);
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.btn-plus.parent2:hover {
+  background: var(--color-warning);
+  color: var(--color-btn-primary-text);
+}
+
+.task-counter {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-card-border-inner);
+  font-size: var(--font-size-sm);
+}
+
+.counter-label {
+  color: var(--color-text-secondary);
+}
+
+.counter-value {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  font-size: var(--font-size-lg);
+}
+
+.daily-summary {
+  margin-top: var(--space-32);
+  padding: var(--space-24);
+  background: var(--color-bg-3);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-12) 0;
+  font-size: var(--font-size-lg);
+}
+
+.summary-label {
+  font-weight: var(--font-weight-semibold);
+}
+
+.summary-value {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-bg-3);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+}
+
+.status-indicator {
+  font-size: var(--font-size-lg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-16);
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-content h2 {
+  margin-bottom: var(--space-24);
+  font-size: var(--font-size-3xl);
+}
+
+.modal-content h3 {
+  margin-bottom: var(--space-12);
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+}
+
+.config-section {
+  margin-bottom: var(--space-24);
+  padding-bottom: var(--space-24);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.config-section:last-of-type {
+  border-bottom: none;
+}
+
+.config-section ul {
+  margin: var(--space-12) 0 0 var(--space-20);
+  color: var(--color-text-secondary);
+}
+
+.config-section li {
+  margin-bottom: var(--space-8);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: flex-end;
+  margin-top: var(--space-24);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-24);
+  margin-top: var(--space-24);
+}
+
+.stats-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+}
+
+.stats-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.stat-value {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.chart-container {
+  margin-top: var(--space-24);
+  height: 300px;
+}
+
+.click-animation {
+  animation: clickPulse 0.3s ease-out;
+}
+
+@keyframes clickPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .main-navigation {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-icon {
+    font-size: 40px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .secondary-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .secondary-actions .btn {
+    flex: 1;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👨‍👩‍👦 Suivi Familial Quotidien</h1>
+        </div>
+        
+        <!-- Navigation principale avec 3 boutons bien visibles -->
+        <div class="main-navigation">
+            <button class="nav-card" onclick="switchView('daily')">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-title">Suivi Quotidien</span>
+                <span class="nav-description">Tracker les tâches du jour</span>
+            </button>
+            <button class="nav-card" onclick="switchView('stats')">
+                <span class="nav-icon">📊</span>
+                <span class="nav-title">Statistiques</span>
+                <span class="nav-description">Voir les résumés et graphiques</span>
+            </button>
+        </div>
+        </div>
+        
+        <!-- Actions secondaires -->
+        <div class="secondary-actions">
+            <button class="btn btn-secondary" onclick="resetCurrentDay()">🔄 Réinitialiser le jour</button>
+            <button class="btn btn-secondary" onclick="syncToGoogleSheet()" id="syncButton" style="display: none;">
+                📊 Sync Google Sheet
+            </button>
+        </div>
+
+        <div class="controls">
+            <div class="week-navigation">
+                <button class="btn btn-secondary" onclick="changeDate(-1)">← Jour précédent</button>
+                <span class="current-week" id="currentDateDisplay"></span>
+                <button class="btn btn-secondary" onclick="changeDate(1)">Jour suivant →</button>
+                <button class="btn btn-secondary" onclick="goToToday()">Aujourd'hui</button>
+            </div>
+            <input type="date" class="week-picker" id="datePicker" onchange="goToDate()">
+        </div>
+
+        <div class="sync-status" id="syncStatus">
+            <span class="status-indicator">⏳</span> Chargement depuis Google Sheets...
+        </div>
+
+        <!-- Configuration Modal -->
+        <div id="configModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>⚙️ Configuration</h2>
+                <div class="config-section">
+                    <h3>Noms des parents</h3>
+                    <div class="form-group">
+                        <label for="configParent1">Parent 1:</label>
+                        <input type="text" class="form-control" id="configParent1" placeholder="Papa">
+                    </div>
+                    <div class="form-group">
+                        <label for="configParent2">Parent 2:</label>
+                        <input type="text" class="form-control" id="configParent2" placeholder="Maman">
+                    </div>
+                </div>
+                <div class="config-section">
+                    <h3>💡 Synchronisation</h3>
+                    <p>Cette application utilise <strong>l'export/import JSON</strong> pour synchroniser vos données entre appareils.</p>
+                    <ul>
+                        <li>Cliquez sur "Exporter" pour sauvegarder vos données</li>
+                        <li>Partagez le fichier JSON avec votre partenaire</li>
+                        <li>Utilisez "Importer" pour charger les données</li>
+                    </ul>
+                    <p style="margin-top: var(--space-16);">Les données sont également <strong>automatiquement synchronisées avec Google Sheets</strong> à chaque modification.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="saveConfig()">Enregistrer</button>
+                    <button class="btn btn-secondary" onclick="closeConfigModal()">Annuler</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vue Quotidienne -->
+        <div id="dailyView" class="view-container">
+            <h2 style="margin-bottom: var(--space-24); text-align: center;">Tâches de Louis</h2>
+            <div class="tasks-grid" id="louisTasksGrid"></div>
+            
+            <h2 style="margin-bottom: var(--space-24); margin-top: var(--space-32); text-align: center;">Activités Personnelles</h2>
+            <div class="tasks-grid" id="personalTasksGrid"></div>
+        </div>
+
+        <!-- Vue Statistiques -->
+        <div id="statsView" class="view-container hidden">
+            <h2 style="margin-bottom: var(--space-24);">Statistiques du mois</h2>
+            <div class="stats-grid" id="statsGrid">
+            </div>
+            <div class="chart-container">
+                <canvas id="statsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // État de l'application
+        let currentDate = new Date();
+        let parents = ['Papa', 'Maman'];
+        let currentView = 'daily';
+        let appData = {
+            parents: ['Papa', 'Maman'],
+            dailyData: {}
+        };
+        let googleSheetUrl = 'https://script.google.com/macros/s/AKfycbxNsNe61_gsM5W5eepvzjAVaOYEhzhlwgFqfmGhtk7lCNfMADhXm6Dv7dXKgWQqHvFU/exec?t=timestamp';
+        
+        const tasksLouis = [
+            'Amener / chercher Louis à la crèche',
+            'Repas du matin',
+            'Repas du midi',
+            'Repas du soir',
+            'Bain/Hygiène',
+            'Coucher de Louis',
+            'Linge de Louis'
+        ];
+        
+        const personalActivities = [
+            'Sorties personnelles',
+            'Activités sportives'
+        ];
+        
+        // Charger les données depuis Google Sheets au démarrage
+        async function loadFromGoogleSheet() {
+            // D'abord charger depuis localStorage pour affichage immédiat
+            const localData = localStorage.getItem('familyTrackerData');
+            if (localData) {
+                try {
+                    const parsed = JSON.parse(localData);
+                    appData = parsed;
+                    if (parsed.parents) {
+                        parents = parsed.parents;
+                    }
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données chargées';
+                    renderDailyView();
+                } catch (error) {
+                    console.error('Erreur localStorage:', error);
+                }
+            }
+            
+            if (!googleSheetUrl) {
+                if (!localData) {
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Prêt';
+                    renderDailyView();
+                }
+                return;
+            }
+            
+            // Ensuite synchroniser avec Google Sheets en arrière-plan
+            try {
+                const cacheBuster = new Date().getTime();
+                const response = await fetch(googleSheetUrl + '?action=loadData&t=' + cacheBuster, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data && data.dailyData) {
+                    appData = data;
+                    if (data.parents) {
+                        parents = data.parents;
+                    }
+                    
+                    // Sauvegarder en local
+                    localStorage.setItem('familyTrackerData', JSON.stringify(appData));
+                    
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Synchronisé avec Google Sheets';
+                    renderDailyView();
+                }
+            } catch (error) {
+                console.error('Sync Google Sheets:', error.message);
+                if (!localData) {
+                    renderDailyView();
+                }
+                // Ne pas afficher d'erreur si on a des données locales
+                if (localData) {
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données chargées (sync en attente)';
+                }
+            }
+        }
+        
+        // Initialiser l'application au démarrage
+        loadFromGoogleSheet();
+        
+        function getDateKey(date) {
+            const d = new Date(date);
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        
+        function formatDateLong(date) {
+            const d = new Date(date);
+            const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+            const months = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+            return `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+        }
+        
+        function renderDailyView() {
+            const dateKey = getDateKey(currentDate);
+            if (!appData.dailyData[dateKey]) {
+                appData.dailyData[dateKey] = {};
+            }
+            
+            const dayData = appData.dailyData[dateKey];
+            
+            // Update date display
+            document.getElementById('currentDateDisplay').textContent = formatDateLong(currentDate);
+            
+            // Update date picker
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            document.getElementById('datePicker').value = `${year}-${month}-${day}`;
+            
+            // Render Louis tasks
+            const louisGrid = document.getElementById('louisTasksGrid');
+            let louisHTML = '';
+            tasksLouis.forEach(task => {
+                const count0 = dayData[`${task}_${parents[0]}`] || 0;
+                const count1 = dayData[`${task}_${parents[1]}`] || 0;
+                louisHTML += `
+                    <div class="task-card">
+                        <div class="task-title">${task}</div>
+                        <div class="task-buttons">
+                            <button class="btn-plus parent1" onclick="incrementTask('${task}', 0)">
+                                ${parents[0]} +1
+                            </button>
+                            <button class="btn-plus parent2" onclick="incrementTask('${task}', 1)">
+                                ${parents[1]} +1
+                            </button>
+                        </div>
+                        <div class="task-counter">
+                            <span class="counter-label">${parents[0]}:</span>
+                            <span class="counter-value">${count0}</span>
+                        </div>
+                        <div class="task-counter">
+                            <span class="counter-label">${parents[1]}:</span>
+                            <span class="counter-value">${count1}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            louisGrid.innerHTML = louisHTML;
+            
+            // Render personal activities
+            const personalGrid = document.getElementById('personalTasksGrid');
+            let personalHTML = '';
+            personalActivities.forEach(activity => {
+                const count0 = dayData[`${activity}_${parents[0]}`] || 0;
+                const count1 = dayData[`${activity}_${parents[1]}`] || 0;
+                personalHTML += `
+                    <div class="task-card">
+                        <div class="task-title">${activity}</div>
+                        <div class="task-buttons">
+                            <button class="btn-plus parent1" onclick="incrementTask('${activity}', 0)">
+                                ${parents[0]} +1
+                            </button>
+                            <button class="btn-plus parent2" onclick="incrementTask('${activity}', 1)">
+                                ${parents[1]} +1
+                            </button>
+                        </div>
+                        <div class="task-counter">
+                            <span class="counter-label">${parents[0]}:</span>
+                            <span class="counter-value">${count0}</span>
+                        </div>
+                        <div class="task-counter">
+                            <span class="counter-label">${parents[1]}:</span>
+                            <span class="counter-value">${count1}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            personalGrid.innerHTML = personalHTML;
+        }
+        
+        function incrementTask(task, parentIndex) {
+            const dateKey = getDateKey(currentDate);
+            if (!appData.dailyData[dateKey]) {
+                appData.dailyData[dateKey] = {};
+            }
+            
+            const key = `${task}_${parents[parentIndex]}`;
+            appData.dailyData[dateKey][key] = (appData.dailyData[dateKey][key] || 0) + 1;
+            
+            // Sauvegarder immédiatement en local
+            localStorage.setItem('familyTrackerData', JSON.stringify(appData));
+            
+            // Animation
+            const buttons = document.querySelectorAll('.btn-plus');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes(parents[parentIndex]) && btn.closest('.task-card').querySelector('.task-title').textContent === task) {
+                    btn.classList.add('click-animation');
+                    setTimeout(() => btn.classList.remove('click-animation'), 300);
+                }
+            });
+            
+            renderDailyView();
+            
+            // Synchroniser avec Google Sheet en arrière-plan
+            syncToGoogleSheet();
+        }
+        
+        function changeDate(direction) {
+            currentDate.setDate(currentDate.getDate() + direction);
+            renderDailyView();
+        }
+        
+        function goToDate() {
+            currentDate = new Date(document.getElementById('datePicker').value);
+            renderDailyView();
+        }
+        
+        function goToToday() {
+            currentDate = new Date();
+            renderDailyView();
+        }
+        
+        function resetCurrentDay() {
+            if (confirm(`Voulez-vous vraiment réinitialiser toutes les données du ${formatDateLong(currentDate)} ?`)) {
+                const dateKey = getDateKey(currentDate);
+                delete appData.dailyData[dateKey];
+                renderDailyView();
+                
+                // Synchroniser avec Google Sheet
+                syncToGoogleSheet();
+                
+                document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données du jour réinitialisées';
+                setTimeout(() => {
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données dans Google Sheets';
+                }, 3000);
+            }
+        }
+        
+        async function syncToGoogleSheet() {
+            if (!googleSheetUrl) {
+                return;
+            }
+            
+            try {
+                // Sauvegarder en local d'abord
+                localStorage.setItem('familyTrackerData', JSON.stringify(appData));
+                
+                document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">⏳</span> Synchronisation...';
+                
+                const response = await fetch(googleSheetUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'saveData',
+                        data: {
+                            parents: parents,
+                            dailyData: appData.dailyData,
+                            timestamp: new Date().toISOString()
+                        }
+                    })
+                });
+                
+                document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Sauvegardé';
+                setTimeout(() => {
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Synchronisé';
+                }, 1500);
+            } catch (error) {
+                console.error('Erreur de synchronisation:', error);
+                document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Sauvegardé localement';
+            }
+        }
+        
+        function switchView(view) {
+            document.getElementById('configParent1').value = parents[0];
+            document.getElementById('configParent2').value = parents[1];
+            document.getElementById('configModal').classList.remove('hidden');
+        }
+        
+        function closeConfigModal() {
+            document.getElementById('configModal').classList.add('hidden');
+        }
+        
+        function saveConfig() {
+            parents[0] = document.getElementById('configParent1').value || 'Papa';
+            parents[1] = document.getElementById('configParent2').value || 'Maman';
+            
+            appData.parents = parents;
+            
+            // Synchroniser avec Google Sheet
+            syncToGoogleSheet();
+            
+            closeConfigModal();
+            if (currentView === 'daily') {
+                renderDailyView();
+            } else {
+                renderStatsView();
+            }
+        }
+        
+        function switchView(view) {
+            currentView = view;
+            if (view === 'daily') {
+                document.getElementById('dailyView').classList.remove('hidden');
+                document.getElementById('statsView').classList.add('hidden');
+                renderDailyView();
+            } else {
+                document.getElementById('dailyView').classList.add('hidden');
+                document.getElementById('statsView').classList.remove('hidden');
+                renderStatsView();
+            }
+        }
+        
+        function renderStatsView() {
+            const taskStats = {};
+            
+            // Initialiser les stats pour chaque tâche
+            [...tasksLouis, ...personalActivities].forEach(task => {
+                taskStats[task] = {
+                    [parents[0]]: 0,
+                    [parents[1]]: 0
+                };
+            });
+            
+            // Calculer les stats par tâche
+            Object.keys(appData.dailyData).forEach(dateKey => {
+                const dayData = appData.dailyData[dateKey];
+                Object.keys(dayData).forEach(taskKey => {
+                    const count = dayData[taskKey];
+                    
+                    // Trouver la tâche et le parent
+                    [...tasksLouis, ...personalActivities].forEach(task => {
+                        if (taskKey.startsWith(task + '_')) {
+                            const parent = taskKey.replace(`${task}_`, '');
+                            if (taskStats[task] && taskStats[task][parent] !== undefined) {
+                                taskStats[task][parent] += count;
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Render stats cards par tâche
+            const statsGrid = document.getElementById('statsGrid');
+            let statsHTML = '';
+            
+            Object.keys(taskStats).forEach(task => {
+                const total = taskStats[task][parents[0]] + taskStats[task][parents[1]];
+                if (total === 0) return; // Skip tasks with no data
+                
+                const percentage0 = ((taskStats[task][parents[0]] / total) * 100).toFixed(1);
+                const percentage1 = ((taskStats[task][parents[1]] / total) * 100).toFixed(1);
+                
+                statsHTML += `
+                    <div class="stats-card">
+                        <h3>${task}</h3>
+                        <div class="stat-row">
+                            <span class="stat-label">${parents[0]}</span>
+                            <span class="stat-value">${taskStats[task][parents[0]]} (${percentage0}%)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">${parents[1]}</span>
+                            <span class="stat-value">${taskStats[task][parents[1]]} (${percentage1}%)</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Total</span>
+                            <span class="stat-value">${total}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (statsHTML === '') {
+                statsHTML = '<p style="text-align: center; color: var(--color-text-secondary);">Aucune donnée disponible pour le moment</p>';
+            }
+            
+            statsGrid.innerHTML = statsHTML;
+            
+            // Render chart - afficher toutes les tâches avec répartition par parent
+            const ctx = document.getElementById('statsChart');
+            if (window.statsChart) {
+                window.statsChart.destroy();
+            }
+            
+            const tasksWithData = Object.keys(taskStats).filter(task => {
+                return taskStats[task][parents[0]] + taskStats[task][parents[1]] > 0;
+            });
+            
+            if (tasksWithData.length === 0) {
+                return; // Pas de graphique si pas de données
+            }
+            
+            window.statsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: tasksWithData,
+                    datasets: [
+                        {
+                            label: parents[0],
+                            data: tasksWithData.map(task => taskStats[task][parents[0]]),
+                            backgroundColor: '#1FB8CD'
+                        },
+                        {
+                            label: parents[1],
+                            data: tasksWithData.map(task => taskStats[task][parents[1]]),
+                            backgroundColor: '#FFC185'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Répartition des tâches par parent'
+                        },
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+        }
+        
+        function exportData() {
+            const dataToExport = {
+                version: '2.0',
+                exportDate: new Date().toISOString(),
+                parents: parents,
+                dailyData: appData.dailyData
+            };
+            
+            const blob = new Blob([JSON.stringify(dataToExport, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            
+            const date = new Date();
+            const filename = `suivi_familial_${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}.json`;
+            
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données exportées avec succès';
+            setTimeout(() => {
+                document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données dans Google Sheets';
+            }, 3000);
+        }
+        
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    
+                    if (imported.parents) {
+                        parents = imported.parents;
+                    }
+                    
+                    if (imported.dailyData) {
+                        // Merge data
+                        Object.keys(imported.dailyData).forEach(dateKey => {
+                            if (!appData.dailyData[dateKey]) {
+                                appData.dailyData[dateKey] = {};
+                            }
+                            Object.assign(appData.dailyData[dateKey], imported.dailyData[dateKey]);
+                        });
+                    }
+                    
+                    appData.parents = parents;
+                    
+                    // Synchroniser avec Google Sheet
+                    syncToGoogleSheet();
+                    
+                    document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données importées avec succès';
+                    setTimeout(() => {
+                        document.getElementById('syncStatus').innerHTML = '<span class="status-indicator">✓</span> Données dans Google Sheets';
+                    }, 3000);
+                    
+                    if (currentView === 'daily') {
+                        renderDailyView();
+                    } else {
+                        renderStatsView();
+                    }
+                } catch (error) {
+                    alert('Erreur lors de l\'importation du fichier. Vérifiez qu\'il s\'agit d\'un fichier JSON valide.');
+                }
+            };
+            reader.readAsText(file);
+            
+            // Reset input
+            event.target.value = '';
+        }
+        
+        // Initialize
+        renderDailyView();
+    </script>
+</body>
+</html>
